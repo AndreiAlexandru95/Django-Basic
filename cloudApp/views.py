@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.db.models import F
 #from django.template import loader
 #from django.http import Http404
 
@@ -53,7 +54,7 @@ def vote(request, question_id):
 			'error_message': "You didn't select a choice.",
 			})
 	else:
-		selected_choice.votes += 1
+		selected_choice.votes = F('vote') + 1
 		selected_choice.save()
 		# Always return an HttpResponseRedirect after successfully dealing with POST data
 		# Prevent data from being posted twice if a user hits the back button
