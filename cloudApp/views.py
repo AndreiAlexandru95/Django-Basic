@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponseRe
 from django.urls import reverse
 #from django.template import loader
 #from django.http import Http404
