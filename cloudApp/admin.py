@@ -6,12 +6,18 @@ from .models import Choice, Question
 
 # Register your models here.
 
+class ChoiceInLine(admin.StackedInLine):
+	model = Choice
+	extra = 3
+
 class QuestionAdmin(admin.ModelAdmin):
 	#fields = ['pub_date', 'question_text']
 	fieldsets = [
 		(None, 					{'fields':['question_text']}),
-		('Date Information',	{'fields':['pub_date']}),
+		('Date Information',	{'fields':['pub_date'], 'classes':['collapse']}),
 	]
+	inlines = [ChoiceInLine]
+
 admin.site.register(Question, QuestionAdmin)
 
-admin.site.register(Choice)
+#admin.site.register(Choice)
