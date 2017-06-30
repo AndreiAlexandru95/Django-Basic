@@ -6,7 +6,7 @@ from .models import Choice, Question
 
 # Register your models here.
 
-class ChoiceInLine(admin.TubularInline):
+class ChoiceInLine(admin.TabularInline):
 	model = Choice
 	extra = 3
 
